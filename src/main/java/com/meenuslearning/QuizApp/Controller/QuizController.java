@@ -31,5 +31,9 @@ public class QuizController {
 
         return  service.getAllQuestion();
     }
+    @GetMapping("/category/{category}")
+    public List<Question> getQuestionsByCategory(@PathVariable("category") String category){
+        return service.getQuestionByCategory(category);
+    }
 
 }

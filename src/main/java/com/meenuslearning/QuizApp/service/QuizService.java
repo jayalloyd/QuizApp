@@ -20,4 +20,8 @@ public class QuizService {
          repo.save(question);
         return repo.findAll();
     }
+
+    public List<Question> getQuestionByCategory(String category) {
+    return repo.findByCategory(category);
+    }
 }
