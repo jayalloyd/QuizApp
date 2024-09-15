@@ -1,16 +1,15 @@
 package com.meenuslearning.QuizApp.service;
 
 import com.meenuslearning.QuizApp.model.Question;
-import com.meenuslearning.QuizApp.repo.QuizRepo;
+import com.meenuslearning.QuizApp.repo.QuestionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class QuizService {
+public class QuestionService {
     @Autowired
-    QuizRepo repo;
+    QuestionRepo repo;
     public List<Question> getAllQuestion() {
         return repo.findAll();
 
