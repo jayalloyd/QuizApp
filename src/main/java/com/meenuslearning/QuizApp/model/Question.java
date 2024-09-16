@@ -14,6 +14,7 @@ public class Question{
     private String b;
     private String c;
     private String category;
+    
     private String rightAnswer;
 
 }
