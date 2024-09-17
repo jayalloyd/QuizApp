@@ -3,6 +3,7 @@ package com.meenuslearning.QuizApp.service;
 import com.meenuslearning.QuizApp.model.Question;
 import com.meenuslearning.QuizApp.model.QuestionWrapper;
 import com.meenuslearning.QuizApp.model.Quiz;
+import com.meenuslearning.QuizApp.model.Response;
 import com.meenuslearning.QuizApp.repo.QuestionRepo;
 import com.meenuslearning.QuizApp.repo.QuizRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,5 +48,19 @@ public class QuizService {
     }
     return new ResponseEntity<>(questionForUser,HttpStatus.OK);
 
+    }
+
+    public ResponseEntity<Integer> calculateResult(Integer id, List<Response> response) {
+    Quiz quiz=repo.findById(id).get();
+    List<Question>questions=quiz.getQuestions();
+    int right=0;
+    int i=0;
+        for(Response res: response){
+            if(res.getResponse().equals(questions.get(i).getRightAnswer()))
+                i++;
+
+        }right++;
+        return
+                 new ResponseEntity<>(right,HttpStatus.OK);
     }
 }

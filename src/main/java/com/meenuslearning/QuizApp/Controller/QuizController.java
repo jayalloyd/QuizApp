@@ -1,6 +1,7 @@
 package com.meenuslearning.QuizApp.Controller;
 
 import com.meenuslearning.QuizApp.model.QuestionWrapper;
+import com.meenuslearning.QuizApp.model.Response;
 import com.meenuslearning.QuizApp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,5 +27,10 @@ public class QuizController {
     @GetMapping("get/{id}")
     public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id){
          return service.getQuizQuestion(id);}
+@PostMapping("submit/{id}")
+    public ResponseEntity<Integer>submitQuiz(@PathVariable Integer id,@RequestBody List<Response>response){
+        return service.calculateResult(id,response);
+
+}
 }
 
